@@ -1,0 +1,33 @@
+.container {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; height: 100vh; padding: 40rpx;
+  /* iOS 安全区域 */
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.title-area { text-align: center; margin-bottom: 60rpx; }
+.title { font-size: 64rpx; color: #e94560; font-weight: bold; letter-spacing: 8rpx; }
+.subtitle { display: block; font-size: 28rpx; color: #8899aa; margin-top: 16rpx; }
+.rule-hint {
+  background: rgba(233,69,96,0.1);
+  border-radius: 12rpx; padding: 20rpx 40rpx; margin-bottom: 60rpx;
+  color: #e94560; font-size: 26rpx;
+  /* 用阴影替代 border，iOS 下更稳定 */
+  box-shadow: 0 0 0 1rpx #e94560;
+}
+.start-btn {
+  width: 400rpx; height: 88rpx;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #e94560, #c23152);
+  color: #fff; border-radius: 44rpx; font-size: 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(233,69,96,0.3);
+  padding: 0; border: none; line-height: normal;
+}
+button.start-btn::after { border: none; }
+.footer { position: fixed; bottom: 40rpx; color: #334; font-size: 20rpx; }
+/* iOS 底部安全区 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .footer { bottom: calc(40rpx + env(safe-area-inset-bottom)); }
+}

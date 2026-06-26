@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chapter/chapter",
+    "pages/ending/ending"
+  ],
+  "window": {
+    "navigationBarTitleText": "规则怪谈",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0f0f23"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

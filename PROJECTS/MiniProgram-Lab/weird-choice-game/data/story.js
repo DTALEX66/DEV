@@ -1,0 +1,238 @@
+module.exports = {
+  "title": "规则怪谈 · 初始篇",
+  "version": "1.1.0",
+  "start": "chapter_1",
+  "chapters": {
+    "chapter_1": {
+      "id": "chapter_1",
+      "title": "第一夜",
+      "content": "你醒来时发现自己躺在一间陌生的房间里。墙壁上贴着一张泛黄的纸条，上面写着：「规则一：不要看向窗外。」\n\n房间只有一盏昏暗的台灯，窗帘低垂。你隐约听到窗外有脚步声。",
+      "choices": [
+        {
+          "text": "遵守规则，低头不看窗外",
+          "next": "chapter_2a"
+        },
+        {
+          "text": "忍不住掀开窗帘看一眼",
+          "next": "chapter_2b"
+        }
+      ]
+    },
+    "chapter_2a": {
+      "id": "chapter_2a",
+      "title": "寂静",
+      "content": "你低着头，屏住呼吸。脚步声渐行渐远。\n\n纸条的背面似乎还有一行小字——「规则二：不要回应任何敲门声。」\n\n话音未落，门外响起了三下敲门声：咚、咚、咚。",
+      "choices": [
+        {
+          "text": "保持沉默，一动不动",
+          "next": "chapter_3a"
+        },
+        {
+          "text": "走到门边问一声「谁啊？」",
+          "next": "chapter_3b"
+        }
+      ]
+    },
+    "chapter_2b": {
+      "id": "chapter_2b",
+      "title": "窥视",
+      "content": "你掀开窗帘的一角。\n\n窗外站着一个和你一模一样的人，正微笑着看着你。\n\n纸条上的字开始扭曲：「你违反了规则。」",
+      "choices": [
+        {
+          "text": "拉上窗帘，假装没看到",
+          "next": "chapter_3c"
+        },
+        {
+          "text": "……陷入绝望",
+          "next": "ending_bad"
+        }
+      ]
+    },
+    "chapter_3a": {
+      "id": "chapter_3a",
+      "title": "幸存",
+      "content": "敲门声在几分钟后停止了。你听到远处传来鸡鸣声。\n\n天亮了。你活过了第一晚。\n\n你推开门，外面是一条走廊。走廊尽头有一扇门，门上贴着一张新纸条——「规则三：不要走回头路。」\n\n走廊两侧各有一扇门。",
+      "choices": [
+        {
+          "text": "推开左侧的门",
+          "next": "chapter_4_left"
+        },
+        {
+          "text": "推开右侧的门",
+          "next": "chapter_4_right"
+        },
+        {
+          "text": "径直走向走廊尽头的门",
+          "next": "ending_secret"
+        }
+      ]
+    },
+    "chapter_3b": {
+      "id": "chapter_3b",
+      "title": "邀请",
+      "content": "门外传来一个熟悉的声音：「是我，开门。」\n\n那是你自己的声音。\n\n纸条上的字开始发烫。",
+      "choices": [
+        {
+          "text": "退后一步，坚决不开门",
+          "next": "chapter_3a"
+        },
+        {
+          "text": "把门打开一道缝",
+          "next": "ending_bad"
+        }
+      ]
+    },
+    "chapter_3c": {
+      "id": "chapter_3c",
+      "title": "幻觉",
+      "content": "你猛地拉上窗帘，心脏狂跳。\n\n再看那张纸条，上面的字已经恢复正常。\n\n脚步声远去了。窗外什么也没有。\n\n天亮了。你走出房门，来到一条昏暗的走廊。走廊两侧各有一扇门。",
+      "choices": [
+        {
+          "text": "推开左侧的门",
+          "next": "chapter_4_left"
+        },
+        {
+          "text": "推开右侧的门",
+          "next": "chapter_4_right"
+        }
+      ]
+    },
+    "chapter_4_left": {
+      "id": "chapter_4_left",
+      "title": "镜室",
+      "content": "你推开门，房间里满是镜子。无数个你站在无数个角度注视着你。\n\n在正中间的一面镜子上，用口红写着——「规则四：不要相信镜中的自己。」\n\n你的倒影突然做了一个你没有做的动作——它指了指墙角的一把锤子，又指了指身后的门。",
+      "choices": [
+        {
+          "text": "拿起锤子砸碎镜子",
+          "next": "chapter_5_break"
+        },
+        {
+          "text": "无视倒影，转身离开",
+          "next": "chapter_5_leave"
+        },
+        {
+          "text": "盯着倒影，问它想说什么",
+          "next": "chapter_5_ask"
+        }
+      ]
+    },
+    "chapter_4_right": {
+      "id": "chapter_4_right",
+      "title": "档案室",
+      "content": "房间里堆满了文件柜。你随手打开一个抽屉，里面全是和你有关的档案——你的出生证明、学生证、工作记录……甚至还有一份今天的报纸。\n\n报纸头版标题：「又一人在规则游戏中失踪，警方称已是第七起。」\n\n日期是———2026年6月26日。\n\n你突然意识到：你根本不是在做梦。",
+      "choices": [
+        {
+          "text": "翻找更多档案寻找线索",
+          "next": "chapter_5_search"
+        },
+        {
+          "text": "拿起报纸，退出房间",
+          "next": "chapter_5_leave"
+        },
+        {
+          "text": "大声呼喊有人吗",
+          "next": "chapter_5_shout"
+        }
+      ]
+    },
+    "chapter_5_break": {
+      "id": "chapter_5_break",
+      "title": "碎裂",
+      "content": "你一锤砸向镜子。镜子碎裂的瞬间，所有的镜子同时裂开，玻璃碎片如雨般落下。\n\n你发现镜子后面是一条通道。通道尽头有光。\n\n但你回过头——你身后的门消失了。你只能向前走。",
+      "choices": [
+        {
+          "text": "沿通道走向光亮处",
+          "next": "ending_good"
+        }
+      ]
+    },
+    "chapter_5_ask": {
+      "id": "chapter_5_ask",
+      "title": "对话",
+      "content": "你盯着镜中的倒影。它开口了——\n\n「你不是第一个。也不会是最后一个。」\n\n「规则不是为了保护你。规则是为了筛选。」\n\n「想活着出去，你必须打破所有规则。」\n\n说完，倒影消失了。镜面上只剩下你自己。",
+      "choices": [
+        {
+          "text": "相信倒影，去打破规则",
+          "next": "ending_secret"
+        },
+        {
+          "text": "倒影不可信，继续遵守规则",
+          "next": "ending_good"
+        }
+      ]
+    },
+    "chapter_5_search": {
+      "id": "chapter_5_search",
+      "title": "真相",
+      "content": "你翻遍了档案。每一份文件都指向一个可怕的结论：\n\n这些「规则怪谈」是一个实验。你和其他失踪者一起被关在不同的楼层，被不同的规则所考验。\n\n你找到了一个对讲机——发出一声静电噪音后，对面传来一个声音：\n\n「Escapee7号？你还活着。走楼梯上五楼，右转第二间——那里有出口。」",
+      "choices": [
+        {
+          "text": "相信对讲机，去五楼",
+          "next": "ending_secret"
+        },
+        {
+          "text": "这可能是陷阱，找其他出口",
+          "next": "ending_good"
+        }
+      ]
+    },
+    "chapter_5_shout": {
+      "id": "chapter_5_shout",
+      "title": "回应",
+      "content": "你大声呼喊。几秒后，走廊尽头传来了回音——一个女人的声音：\n\n「有人？！」\n\n你循声跑去，在走廊尽头遇到了另一个被困者。她手里拿着一张地图。\n\n「我在这里困了两天。跟我来。我知道出口在哪。」",
+      "choices": [
+        {
+          "text": "跟她走",
+          "next": "ending_good"
+        },
+        {
+          "text": "你怎么证明你不是「他们」的人？",
+          "next": "chapter_4_left"
+        }
+      ]
+    },
+    "chapter_5_leave": {
+      "id": "chapter_5_leave",
+      "title": "折返",
+      "content": "你退出了房间。走廊已经变了——来时的路消失了，取而代之的是一道向上的楼梯。\n\n楼梯口贴着一张纸条——「规则五：不要在楼梯上停顿。」\n\n你听到楼上有脚步声。",
+      "choices": [
+        {
+          "text": "快速跑上楼梯",
+          "next": "ending_good"
+        },
+        {
+          "text": "小心翼翼慢慢上楼",
+          "next": "ending_bad"
+        }
+      ]
+    },
+    "ending_good": {
+      "id": "ending_good",
+      "title": "结局：幸存者",
+      "content": "你走出了建筑。外面是一个普通的清晨，阳光洒在街道上。行人匆匆，没有人注意到你。\n\n你自由了。\n\n但你注意到，街角有一个和你一模一样的人，正转身走进了另一栋楼。\n\n—— 你遵守了规则，但你并没有真正逃脱。\n\n【完】",
+      "choices": []
+    },
+    "ending_bad": {
+      "id": "ending_bad",
+      "title": "结局：替代",
+      "content": "你的意识开始模糊。在那个瞬间，你明白了——\n\n「规则」不是为了保护你，而是为了维持平衡。\n\n现在，另一个你取代了你。\n\n你已成为规则的一部分。",
+      "choices": [
+        {
+          "text": "重新开始",
+          "next": "chapter_1"
+        }
+      ]
+    },
+    "ending_secret": {
+      "id": "ending_secret",
+      "title": "隐藏结局：觉醒",
+      "content": "你打破了所有规则。\n\n倒影没有撒谎。对讲机没有撒谎。所有被你打破的规则碎片在你身后聚集成一条清晰的路。\n\n你走进了一间控制室。墙上挂满了屏幕，每一块屏幕里都有一个正在经历规则考验的人。\n\n你看到了实验的控制台。你看到了自己的档案——「Escapee 7号：已觉醒」。\n\n现在，轮到你来决定——要不要关掉机器，释放所有人？\n\n你伸手按下了电源键。\n\n所有屏幕同时熄灭。\n\n【真正的结局：你自由了。他们也自由了。】",
+      "choices": [
+        {
+          "text": "再来一次",
+          "next": "chapter_1"
+        }
+      ]
+    }
+  }
+};

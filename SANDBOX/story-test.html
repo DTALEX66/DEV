@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>规则怪谈 · 测试原型</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'Microsoft YaHei', sans-serif;
+  background: #0f0f23; color: #e0e0e0;
+  min-height: 100vh; display: flex; justify-content: center;
+}
+#app { max-width: 480px; width: 100%; padding: 20px; }
+.chapter-card {
+  background: rgba(255,255,255,0.04); border-radius: 16px;
+  padding: 28px 24px; margin: 20px 0;
+  border: 1px solid rgba(255,255,255,0.06);
+  animation: fadeUp 0.5s ease;
+}
+.title { font-size: 22px; color: #e94560; font-weight: bold; }
+.divider { height: 2px; background: linear-gradient(90deg, #e94560, transparent); margin: 16px 0; }
+.content { font-size: 16px; line-height: 1.9; color: #b0b0c8; white-space: pre-wrap; }
+.choices { margin-top: 20px; }
+.hint { text-align: center; color: #445; font-size: 13px; margin-bottom: 12px; letter-spacing: 2px; }
+.choice {
+  display: block; width: 100%; padding: 16px; margin-bottom: 10px;
+  background: rgba(233,69,96,0.06); border: 1px solid rgba(233,69,96,0.25);
+  border-radius: 12px; color: #d0d0e0; font-size: 16px; cursor: pointer;
+  transition: all 0.2s; text-align: center;
+}
+.choice:hover { background: rgba(233,69,96,0.15); transform: translateY(-1px); }
+.choice:active { transform: scale(0.98); }
+.ending-badge {
+  display: inline-block; background: #e94560; color: #fff;
+  font-size: 11px; padding: 4px 16px; border-radius: 12px;
+  letter-spacing: 3px; margin-bottom: 12px;
+}
+.restart-btn {
+  display: block; width: 200px; margin: 30px auto 0;
+  padding: 14px; background: linear-gradient(135deg, #e94560, #c23152);
+  color: #fff; border: none; border-radius: 24px; font-size: 15px;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(233,69,96,0.3);
+}
+.restart-btn:hover { transform: translateY(-2px); }
+.header { text-align: center; padding: 20px 0 10px; }
+.header h1 { font-size: 28px; color: #e94560; letter-spacing: 4px; }
+.header p { font-size: 13px; color: #667; margin-top: 6px; }
+.status-bar {
+  text-align: center; font-size: 12px; color: #334; padding: 8px;
+  border-top: 1px solid #1a1a30; margin-top: 40px;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.loading { text-align: center; color: #445; padding: 80px 0; font-size: 14px; }
+.error { color: #e94560; text-align: center; padding: 40px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var STORY = {"title":"规则怪谈 · 初始篇","version":"1.0.0","start":"chapter_1","chapters":{"chapter_1":{"id":"chapter_1","title":"第一夜","content":"你醒来时发现自己躺在一间陌生的房间里。墙壁上贴着一张泛黄的纸条，上面写着：「规则一：不要看向窗外。」\n\n房间只有一盏昏暗的台灯，窗帘低垂。你隐约听到窗外有脚步声。","choices":[{"text":"遵守规则，低头不看窗外","next":"chapter_2a"},{"text":"忍不住掀开窗帘看一眼","next":"chapter_2b"}]},"chapter_2a":{"id":"chapter_2a","title":"寂静","content":"你低着头，屏住呼吸。脚步声渐行渐远。\n\n纸条的背面似乎还有一行小字——「规则二：不要回应任何敲门声。」\n\n话音未落，门外响起了三下敲门声：咚、咚、咚。","choices":[{"text":"保持沉默","next":"chapter_3a"},{"text":"问一声「谁啊？」","next":"chapter_3b"}]},"chapter_2b":{"id":"chapter_2b","title":"窥视","content":"你掀开窗帘的一角。\n\n窗外站着一个和你一模一样的人，正微笑着看着你。\n\n纸条上的字开始扭曲：「你违反了规则。」","choices":[{"text":"拉上窗帘，假装没看到","next":"chapter_3c"},{"text":"……陷入绝望","next":"ending_bad"}]},"chapter_3a":{"id":"chapter_3a","title":"幸存","content":"敲门声在几分钟后停止了。你听到远处传来鸡鸣声。\n\n天亮了。你活过了第一晚。","choices":[{"text":"走出房间 — 结局：幸存者","next":"ending_good"}]},"chapter_3b":{"id":"chapter_3b","title":"邀请","content":"门外传来一个熟悉的声音：「是我，开门。」\n\n那是你自己的声音。","choices":[{"text":"坚决不开门","next":"chapter_3a"},{"text":"把门打开一道缝","next":"ending_bad"}]},"chapter_3c":{"id":"chapter_3c","title":"幻觉","content":"你猛地拉上窗帘，心脏狂跳。\n\n再看那张纸条，上面的字已经恢复正常。\n\n也许只是幻觉……但你真的相信吗？","choices":[{"text":"继续遵守规则 — 结局：幸存者","next":"ending_good"}]},"ending_good":{"id":"ending_good","title":"结局：幸存者","content":"你走出了房间。外面是一个普通的清晨，阳光洒在街道上。\n\n但你注意到，街角有一个和你一模一样的人，正转身走进了另一栋楼。\n\n—— 你遵守了规则，但你并没有逃脱。\n\n【未完待续】","choices":[]},"ending_bad":{"id":"ending_bad","title":"结局：替代","content":"你的意识开始模糊。在那个瞬间，你明白了——\n\n「规则」不是为了保护你，而是为了维持平衡。\n\n现在，另一个你取代了你。\n\n【你已成为规则的一部分】","choices":[{"text":"重新开始","next":"chapter_1"}]}}};
+
+function render() {
+  var app = document.getElementById('app');
+  var state = { chapterId: STORY.start, history: [] };
+
+  function show(id) {
+    state.history.push(state.chapterId);
+    state.chapterId = id;
+    renderView();
+  }
+
+  function renderView() {
+    var ch = STORY.chapters[state.chapterId];
+    if (!ch) {
+      app.innerHTML = '<div class="error">⚠ 章节 "' + state.chapterId + '" 未找到</div>';
+      return;
+    }
+
+    var isEnding = !ch.choices || ch.choices.length === 0;
+    var html = '<div class="header"><h1>规则怪谈</h1><p>互动叙事 · 测试原型</p></div>';
+
+    html += '<div class="chapter-card" id="card">';
+    if (isEnding) html += '<div class="ending-badge">END</div>';
+    html += '<div class="title">' + ch.title + '</div>';
+    html += '<div class="divider"></div>';
+    html += '<div class="content">' + ch.content + '</div>';
+    html += '</div>';
+
+    if (!isEnding) {
+      html += '<div class="choices">';
+      html += '<div class="hint">— 你的选择 —</div>';
+      for (var i = 0; i < ch.choices.length; i++) {
+        var c = ch.choices[i];
+        html += '<button class="choice" onclick="show(\'' + c.next + '\')">' + c.text + '</button>';
+      }
+      html += '</div>';
+    } else {
+      var restartChoice = ch.choices && ch.choices.length > 0 ? ch.choices[0] : null;
+      if (restartChoice) {
+        html += '<button class="restart-btn" onclick="show(\'' + restartChoice.next + '\')">' + restartChoice.text + '</button>';
+      }
+      html += '<button class="restart-btn" onclick="show(\'' + STORY.start + '\')" style="background:transparent;border:1px solid #445;color:#889;box-shadow:none;margin-top:12px;">返回首页</button>';
+    }
+
+    html += '<div class="status-bar">SANDBOX 测试环境 · 章节: ' + state.chapterId + ' · ' + STORY.title + '</div>';
+    app.innerHTML = html;
+
+    // 滚动到顶部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 暴露 show 供 onclick 使用
+  window.show = show;
+  renderView();
+}
+
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

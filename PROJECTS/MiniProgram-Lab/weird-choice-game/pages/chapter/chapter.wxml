@@ -1,0 +1,18 @@
+<view class="chapter-container">
+  <view class="chapter-card {{animating ? 'fade-in' : ''}}">
+    <text class="chapter-title">{{title}}</text>
+    <view class="chapter-divider">  <!-- 规则入口 -->
+  <view class="rules-entry" bindtap="onRules">
+    <text>📜 规则</text>
+  </view>
+</view>
+
+    <text class="chapter-content">{{content}}</text>
+  </view>
+  <view class="choices-area {{animating ? 'fade-in' : ''}}" wx:if="{{choices.length > 0}}">
+    <view class="choice-hint">— 你的选择 —</view>
+    <view class="choice-btn" wx:for="{{choices}}" wx:key="index" data-next="{{item.next}}" bindtap="onChoice">
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>

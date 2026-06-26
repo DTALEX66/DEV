@@ -1,0 +1,37 @@
+<view class="ending-container">
+  <view class="ending-badge">END</view>
+  <text class="ending-title">{{title}}</text>
+  <view class="ending-divider"></view>
+  <text class="ending-content">{{content}}</text>
+
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <text class="stat-num">{{stats.chapters}}</text>
+      <text class="stat-label">探索章节</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num">{{stats.rulesFound}}/{{stats.rulesTotal}}</text>
+      <text class="stat-label">发现规则</text>
+    </view>
+  </view>
+
+  <!-- 路线图折叠 -->
+  <view class="route-toggle" bindtap="onToggleRoute">
+    <text>{{showRoute ? "收起路线图" : "查看路线图"}}</text>
+  </view>
+  <view class="route-list" wx:if="{{showRoute}}">
+    <view class="route-node" wx:for="{{route}}" wx:key="index">
+      <view class="route-dot {{index === 0 ? 'first' : ''}}"></view>
+      <text class="route-step">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 规则收集 -->
+  <view class="rules-section" wx:if="{{rulesFound.length > 0}}">
+    <text class="rules-section-title">📜 发现的规则</text>
+    <text class="rules-section-text" wx:for="{{rulesFound}}" wx:key="index">{{item}}</text>
+  </view>
+
+  <button class="restart-btn" wx:if="{{canRestart}}" bindtap="onRestart">重新开始</button>
+</view>
