@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/chapter/chapter",
-    "pages/ending/ending"
+    "pages/ending/ending",
+    "pages/rules/rules"
   ],
   "window": {
     "navigationBarTitleText": "规则怪谈",

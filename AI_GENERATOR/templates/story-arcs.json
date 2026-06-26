@@ -1,0 +1,151 @@
+{
+  "story_archetypes": {
+    "classic": {
+      "description": "标准规则怪谈结构：醒来→探索→揭露→结局",
+      "chapter_count": {
+        "min": 5,
+        "max": 8
+      },
+      "required_rules": 5,
+      "structure": [
+        {
+          "phase": "醒来",
+          "chapters": 1,
+          "type": "introduction"
+        },
+        {
+          "phase": "认知规则",
+          "chapters": 2,
+          "type": "exploration"
+        },
+        {
+          "phase": "异常升级",
+          "chapters": 1,
+          "type": "escalation"
+        },
+        {
+          "phase": "真相逼近",
+          "chapters": 1,
+          "type": "revelation"
+        },
+        {
+          "phase": "反转与结局",
+          "chapters": 1,
+          "type": "climax"
+        }
+      ]
+    },
+    "inverted": {
+      "description": "反转式：一开始看起来正常，逐渐诡异",
+      "chapter_count": {
+        "min": 6,
+        "max": 8
+      },
+      "required_rules": 4,
+      "structure": [
+        {
+          "phase": "日常",
+          "chapters": 1,
+          "type": "normal"
+        },
+        {
+          "phase": "细微异常",
+          "chapters": 2,
+          "type": "subtle"
+        },
+        {
+          "phase": "规则显现",
+          "chapters": 2,
+          "type": "rules_emerge"
+        },
+        {
+          "phase": "全面崩溃",
+          "chapters": 1,
+          "type": "breakdown"
+        },
+        {
+          "phase": "真相",
+          "chapters": 1,
+          "type": "truth"
+        }
+      ]
+    },
+    "loop": {
+      "description": "循环式：空间/时间循环困局",
+      "chapter_count": {
+        "min": 5,
+        "max": 6
+      },
+      "required_rules": 3,
+      "structure": [
+        {
+          "phase": "首次进入",
+          "chapters": 1,
+          "type": "enter"
+        },
+        {
+          "phase": "意识到循环",
+          "chapters": 2,
+          "type": "realization"
+        },
+        {
+          "phase": "打破循环尝试",
+          "chapters": 2,
+          "type": "breaking"
+        },
+        {
+          "phase": "突破或沦陷",
+          "chapters": 1,
+          "type": "resolution"
+        }
+      ]
+    }
+  },
+  "chapter_skeleton": {
+    "type": "object",
+    "fields": {
+      "rule_intro": "规则X的描述（可选）",
+      "anomaly": "当前场景的异常现象",
+      "pressure": "心理压迫描写",
+      "transition": "过渡叙事（可选）"
+    },
+    "choice_count": {
+      "min": 2,
+      "max": 3
+    }
+  },
+  "ending_archetypes": {
+    "good": [
+      "幸存者——逃出去了但总觉得没逃干净",
+      "遗忘——失去记忆回到普通生活",
+      "合作——和另一个被困者一起逃出"
+    ],
+    "bad": [
+      "替代——被复制品取代",
+      "同化——成为规则的一部分",
+      "循环——醒来发现一切重新开始"
+    ],
+    "secret": [
+      "觉醒——发现真相并终结实验",
+      "掌控——成为规则的管理者",
+      "救赎——牺牲自己释放所有人"
+    ]
+  },
+  "plot_twist_patterns": [
+    "玩家发现规则本身是实验的一部分",
+    "另一个被困者是监控者",
+    "自己其实已经死了 / 是复制品",
+    "规则制定者就是未来的自己",
+    "所有选择都是被设计好的，自由意志不存在",
+    "逃出去的世界才是假的，规则空间才是真实的"
+  ],
+  "branching_rules": {
+    "hidden_route_trigger": "特定flag激活（如不信任、打破规则等）",
+    "ending_condition": {
+      "sanity_high": "倾向好结局/隐藏结局",
+      "sanity_low": "倾向坏结局",
+      "trust_high": "打开隐藏路径",
+      "flags": "特定行为触发专属分支"
+    }
+  }
+}

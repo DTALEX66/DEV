@@ -1,11 +1,36 @@
-<view class="container">
-  <view class="title-area">
-    <text class="title">{{title}}</text>
-    <text class="subtitle">{{subtitle}}</text>
+<view class="atmo-wrapper atmo-anomaly">
+  <view class="bg-layer anomaly"></view>
+  <view class="bg-noise"></view>
+  <view class="bg-vignette"></view>
+  <view class="atmo-overlay"></view>
+
+  <view class="terminal-home">
+    <view class="home-content">
+      <view class="home-boot">
+        <text class="boot-line">SYS::INITIALIZING...</text>
+        <text class="boot-line boot-done">SYS::STORY_ENGINE_LOADED</text>
+        <text class="boot-line boot-done">SYS::RULES_SYSTEM_ACTIVE</text>
+        <text class="boot-line boot-warn">SYS::WARNING — TRUTH_IS_INCOMPLETE</text>
+      </view>
+
+      <view class="home-title-block">
+        <text class="home-glitch">{{glitchText}}</text>
+      </view>
+
+      <view class="home-subtitle">互动叙事体验 · 决策驱动</view>
+
+      <view class="home-divider"></view>
+
+      <view class="home-start {{loaded?'show':''}}" bindtap="onStart">
+        <text class="start-prompt">❯</text>
+        <text class="start-text">开始实验</text>
+        <text class="start-cursor" wx:if="{{loaded}}">▊</text>
+      </view>
+
+      <view class="home-footer">
+        <text class="footer-text">v3.0.0 | 第7号实验体</text>
+        <text class="footer-text">SYS::READY</text>
+      </view>
+    </view>
   </view>
-  <view class="rule-hint">
-    <text>规则一：不要看向窗外</text>
-  </view>
-  <button class="start-btn" bindtap="onStart">开始游戏</button>
-  <view class="footer">D/DEV/MiniProgram-Lab</view>
 </view>

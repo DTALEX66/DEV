@@ -1,7 +1,12 @@
 {
   "description": "规则怪谈互动叙事小程序",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "suffix",
+        "value": ".md"
+      }
+    ],
     "include": []
   },
   "setting": {

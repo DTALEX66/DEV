@@ -1,18 +1,43 @@
-<view class="chapter-container">
-  <view class="chapter-card {{animating ? 'fade-in' : ''}}">
-    <text class="chapter-title">{{title}}</text>
-    <view class="chapter-divider">  <!-- 规则入口 -->
-  <view class="rules-entry" bindtap="onRules">
-    <text>📜 规则</text>
-  </view>
-</view>
-
-    <text class="chapter-content">{{content}}</text>
-  </view>
-  <view class="choices-area {{animating ? 'fade-in' : ''}}" wx:if="{{choices.length > 0}}">
-    <view class="choice-hint">— 你的选择 —</view>
-    <view class="choice-btn" wx:for="{{choices}}" wx:key="index" data-next="{{item.next}}" bindtap="onChoice">
-      <text>{{item.text}}</text>
+<view class="atmo-wrapper {{atmoClass}} {{fxFlicker?'fx-flicker':''}} {{fxShake?'fx-shake':''}}">
+  <view class="bg-layer {{atmoState}}"></view>
+  <view class="bg-noise"></view>
+  <view class="bg-vignette"></view>
+  <view class="atmo-overlay"></view>
+  <view class="terminal-container">
+    <view class="terminal-status">
+      <text class="terminal-clock">SYS::ACTIVE</text>
+      <view class="terminal-status-item">
+        <text class="terminal-tag sanity">SAN:{{sanity}}</text>
+        <text class="terminal-tag trust">TRU:{{trust}}</text>
+        <text class="terminal-tag fragment">FRG:{{fragmentCount}}/{{fragmentTotal}}</text>
+      </view>
+    </view>
+    <view class="terminal-header">
+      <text class="terminal-chapter-id">{{chapterTag}}</text>
+      <text class="terminal-chapter-title">{{title}}</text>
+    </view>
+    <view class="terminal-content">
+      <text class="terminal-text" bindtap="onTapSkip">{{displayContent}}</text>
+      <text wx:if="{{typing}}" class="terminal-cursor">▊</text>
+    </view>
+    <view wx:if="{{choices.length>0}}" class="terminal-divider"></view>
+    <view class="terminal-choices {{animating?'show':''}}" wx:if="{{choices.length>0}}">
+      <text class="terminal-prompt">// 请做出判断</text>
+      <view wx:for="{{choices}}" wx:key="index">
+        <view class="terminal-choice {{index===0?'primary':''}} {{index===choices.length-1?'danger-opt':'secondary'}} {{typing?'disabled':''}} {{clickFeedback==='pulse-'+index?'pulse':''}}"
+          data-next="{{item.next}}" data-idx="{{index}}" catchtap="onChoice">
+          <text class="choice-arrow">❯</text>
+          <text class="choice-text">{{item.text}}</text>
+        </view>
+      </view>
+      <!-- 广告解锁按钮 -->
+      <view wx:if="{{adUnlocked}}" class="ad-hint">
+        <text class="ad-hint-text">🔓 隐藏选项已解锁</text>
+      </view>
+    </view>
+    <view class="terminal-footer">
+      <text class="terminal-rule-count">RULES: <text class="count-num">{{rulesCount}}</text></text>
+      <text class="terminal-skip-hint">[点击内容跳字]</text>
     </view>
   </view>
 </view>

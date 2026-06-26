@@ -1,37 +1,36 @@
-<view class="ending-container">
-  <view class="ending-badge">END</view>
-  <text class="ending-title">{{title}}</text>
-  <view class="ending-divider"></view>
-  <text class="ending-content">{{content}}</text>
-
-  <!-- 统计卡片 -->
-  <view class="stats-card">
-    <view class="stat-item">
-      <text class="stat-num">{{stats.chapters}}</text>
-      <text class="stat-label">探索章节</text>
+<view class="atmo-wrapper {{atmoClass}} {{fxFlicker?'fx-flicker':''}}">
+  <view class="bg-layer {{atmoState}}"></view>
+  <view class="bg-noise"></view>
+  <view class="bg-vignette"></view>
+  <view class="atmo-overlay"></view>
+  <view class="terminal-ending">
+    <view class="ending-content">
+      <text class="ending-tag">{{endingTag}}</text>
+      <text class="ending-title">{{title}}</text>
+      <view class="ending-divider"></view>
+      <text class="ending-text">{{content}}</text>
+      <view class="ending-stats" wx:if="{{stats}}">
+        <text class="stat-line">章节完成: {{stats.chapters}}</text>
+        <text class="stat-line">规则发现: {{stats.rulesFound}}/{{stats.rulesTotal}}</text>
+        <text class="stat-line fragment-line" wx:if="{{fragmentCount>0}}">真相碎片: {{fragmentCount}}/{{fragmentTotal}}</text>
+      </view>
+      <view class="ending-actions">
+        <!-- 广告复活按钮（假结局/坏结局） -->
+        <view wx:if="{{showRevive}}" class="end-choice ad-choice" bindtap="onWatchAd">
+          <text class="end-arrow">📺</text>
+          <text class="end-label ad-label">观看广告·继续实验</text>
+        </view>
+        <!-- 重新开始 -->
+        <view wx:if="{{canRestart}}" class="end-choice" bindtap="onRestart">
+          <text class="end-arrow">❯</text>
+          <text class="end-label">重新开始实验</text>
+        </view>
+        <!-- 通关广告支持（好结局/隐藏结局） -->
+        <view wx:if="{{showAdEnding}}" class="end-choice ad-support-choice" bindtap="onAdEnding">
+          <text class="end-arrow">📺</text>
+          <text class="end-label">观看广告支持开发者</text>
+        </view>
+      </view>
     </view>
-    <view class="stat-item">
-      <text class="stat-num">{{stats.rulesFound}}/{{stats.rulesTotal}}</text>
-      <text class="stat-label">发现规则</text>
-    </view>
   </view>
-
-  <!-- 路线图折叠 -->
-  <view class="route-toggle" bindtap="onToggleRoute">
-    <text>{{showRoute ? "收起路线图" : "查看路线图"}}</text>
-  </view>
-  <view class="route-list" wx:if="{{showRoute}}">
-    <view class="route-node" wx:for="{{route}}" wx:key="index">
-      <view class="route-dot {{index === 0 ? 'first' : ''}}"></view>
-      <text class="route-step">{{item}}</text>
-    </view>
-  </view>
-
-  <!-- 规则收集 -->
-  <view class="rules-section" wx:if="{{rulesFound.length > 0}}">
-    <text class="rules-section-title">📜 发现的规则</text>
-    <text class="rules-section-text" wx:for="{{rulesFound}}" wx:key="index">{{item}}</text>
-  </view>
-
-  <button class="restart-btn" wx:if="{{canRestart}}" bindtap="onRestart">重新开始</button>
 </view>

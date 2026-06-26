@@ -1,0 +1,21 @@
+<view class="atmo-wrapper atmo-anomaly">
+  <view class="bg-layer anomaly"></view>
+  <view class="bg-noise"></view>
+  <view class="bg-vignette"></view>
+  <view class="atmo-overlay"></view>
+
+  <view class="terminal-rules">
+    <view class="rules-header">
+      <text class="rules-tag">SYS::RULES_LOG</text>
+      <text class="rules-found">{{foundCount}}/{{totalCount}} 已发现</text>
+    </view>
+    <view class="rules-divider"></view>
+    <view wx:for="{{rules}}" wx:key="id">
+      <view class="rule-item {{item.found?'found':'hidden'}}">
+        <text class="rule-index">{{index+1}}</text>
+        <text class="rule-text">{{item.found?item.text:'???'}}</text>
+        <text class="rule-status" wx:if="{{!item.found}}">[已锁定]</text>
+      </view>
+    </view>
+  </view>
+</view>

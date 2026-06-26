@@ -1,13 +1,16 @@
-var storyData = require('./data/story.js');
+var sd=require('./data/story.js');
+var ad=require('./utils/ad-manager.js');
 App({
-  globalData: {
-    storyData: storyData,
-    discoveredRules: [],   // 已发现的规则
-    storyPath: []          // 走过的路径
+  globalData:{
+    storyData:sd,
+    discoveredRules:[],
+    storyPath:[],
+    playerState:{sanity:100,trust:50,flags:{}},
+    __dev__:true,
+    playBgm:null
   },
-    playBgm: null, // 背景音实例
-
-  onLaunch() {
-    console.log('规则怪谈 · 启动 v' + storyData.version);
+  onLaunch: function(){
+    ad.init();
+    console.log('[系统] 规则怪谈 v'+sd.version+' MVP');
   }
 });
