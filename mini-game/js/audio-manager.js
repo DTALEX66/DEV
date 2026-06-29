@@ -1,0 +1,1 @@
+function init(){console.log("[AUDIO]init");}function playBGM(t){console.log("[AUDIO]BGM:",t);}function playFX(t){console.log("[AUDIO]FX:",t);}module.exports={init,playBGM,playFX};

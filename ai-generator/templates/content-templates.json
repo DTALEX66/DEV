@@ -1,0 +1,85 @@
+{
+  "content_templates": {
+    "introduction": {
+      "pattern": "你{action}。{room_desc}。{notice_rule}",
+      "variables": {
+        "action": [
+          "醒来发现自己躺在",
+          "推开沉重的门走进",
+          "睁开眼，你站在"
+        ],
+        "room_desc": [
+          "四周光线昏暗，只有一盏{light_source}",
+          "空气中弥漫着{smell}的味道",
+          "温度比正常低很多，你能看到自己呼出的白气"
+        ],
+        "light_source": [
+          "忽明忽暗的日光灯",
+          "昏黄的台灯",
+          "应急灯",
+          "手机屏幕的光"
+        ],
+        "smell": [
+          "霉味",
+          "消毒水",
+          "潮湿的泥土",
+          "灰尘",
+          "铁锈"
+        ]
+      }
+    },
+    "exploration": {
+      "pattern": "[规则说明]\n{rules_text}\n\n[当前异常]\n{anomaly_text}\n\n[心理压迫]\n{pressure_text}",
+      "anomaly_types": [
+        "视觉异常",
+        "听觉异常",
+        "触觉异常",
+        "综合异常"
+      ]
+    },
+    "escalation": {
+      "pattern": "[当前异常]\n{anomaly_escalated}\n\n[心理压迫]\n{pressure_escalated}\n规则正在被挑战，{consequence}",
+      "escalation_factors": [
+        "多个规则同时失效",
+        "周围环境开始扭曲",
+        "时间感知异常",
+        "另一个存在正在靠近"
+      ]
+    },
+    "revelation": {
+      "pattern": "你{discovery_action}。\n\n{truth_text}\n\n{impact_text}",
+      "discovery_actions": [
+        "推开最后一扇门",
+        "在抽屉最深处找到",
+        "听到了那个声音说出的真相"
+      ]
+    },
+    "climax": {
+      "pattern": "[剧情反转]\n{twist_text}\n\n[最终选择]\n{final_choices}",
+      "twist_openers": [
+        "你突然意识到",
+        "一个不可思议的念头闪过",
+        "屏幕上的字让你明白了",
+        "那个声音说出了真相"
+      ]
+    }
+  },
+  "pressure_descriptions": [
+    "你的心跳声在空旷中显得格外清楚",
+    "你不确定自己听到的是外界的声音还是自己的耳鸣",
+    "某种不协调感让你的后颈发凉",
+    "周围太安静了——安静到你能听到自己血管里的血流声",
+    "你想告诉自己这不是真的，但触感太真实了",
+    "一种被注视的感觉挥之不去",
+    "你的影子在灯光下的方向是错的",
+    "某种直觉在警告你——不要继续了，但你已经没有退路"
+  ],
+  "consequence_hints": [
+    "（选择这条路可能无法回头）",
+    "（这个决定可能会激怒某些东西）",
+    "（你的理智在警告你不要这样做）",
+    "（你有一种直觉：这是陷阱）",
+    "（但这可能正是它希望你做的）",
+    "（你感觉到规则在动摇）"
+  ]
+}

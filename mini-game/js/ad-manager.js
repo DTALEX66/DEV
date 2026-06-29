@@ -1,0 +1,1 @@
+function showAd(cb){console.log("[AD]占位");if(typeof cb==="function")setTimeout(cb,500);}module.exports={showAd};
